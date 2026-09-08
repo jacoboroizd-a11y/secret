@@ -1,40 +1,4 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Guía — Managua de Noche</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark">MN</span><span class="brand-copy"><strong>Managua de Noche</strong><small>Comé. Salí. Descubrí.</small></span></a>
-  <nav class="nav"><a href="index.html#guias">Guías</a><button class="nav-cta" onclick="protectedAction('join_from_article')">Unirme</button></nav>
-</header>
-
-<main class="article-page">
-  <a class="back-link" href="index.html#guias">← Todas las guías</a>
-  <div class="article-meta">GUÍA · MANAGUA · 6 MIN</div>
-  <h1>Una noche con música en vivo cambia por completo el plan.</h1>
-  <p class="article-deck">No todo tiene que empezar con “¿y ahora dónde vamos?”. Algunas noches funcionan mejor cuando ya tenés una dirección.</p>
-
-  <figure class="article-photo">
-    <img src="https://images.unsplash.com/photo-1759415548138-4754287fb43f?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" alt="Música en vivo en Managua">
-    <figcaption>Foto: Les Taylor / Unsplash · Restaurante Nativo, Managua</figcaption>
-  </figure>
-
-  <div class="article-body">
-    <p>Esta guía está pensada como contenido editorial real: contexto, categorías, ambiente y criterios para elegir un lugar. En una versión pública convendría completar cada recomendación únicamente con información verificada.</p>
-    <h2>Qué buscar</h2>
-    <p>Una buena noche no depende solamente de quién toca. Importan el volumen, la posibilidad de conversar, la zona, el tipo de público y qué tan fácil es continuar el plan después.</p>
-    <blockquote>La mejor recomendación no es “el lugar más popular”; es el que encaja con la noche que querés tener.</blockquote>
-    <h2>Guardalo para después</h2>
-    <p>Podés crear un perfil para guardar esta guía y seguir categorías similares.</p>
-    <button class="btn primary" onclick="protectedAction('save_article')">Guardar esta guía</button>
-  </div>
-</main>
-
-<script src="script.js"></script>
-<script>track("article_view");</script>
-</body>
-</html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Artículo — Managua de Noche</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">MN</span><span><strong>Managua de Noche</strong><small>Comé. Salí. Descubrí.</small></span></a><nav class="nav"><a href="explore.html">Lugares</a><a href="articles.html">Historias</a></nav></header>
+<main class="article-page"><a class="back" href="articles.html">← Todas las historias</a><div id="articleCategory" class="article-kicker"></div><h1 id="articleTitle"></h1><p id="articleDeck" class="deck"></p><div id="articleBody" class="article-body"></div><div class="source-note">Base editorial: <strong id="sourceLabel"></strong><br><span id="sourceLinks"></span></div></main>
+<script src="data.js"></script><script src="app.js"></script><script>initArticle()</script></body></html>

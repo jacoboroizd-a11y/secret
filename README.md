@@ -1,59 +1,25 @@
-# Managua de Noche — V4
+# Managua de Noche V6
 
-Versión más madura del sitio para una simulación interna autorizada de awareness.
+V6 convierte el proyecto en un pequeño medio/directorio navegable.
 
-## Qué cambia en V4
+Páginas:
+- index.html
+- explore.html
+- articles.html
+- article.html?id=...
+- place.html?id=...
+- failed.html
 
-- Fotografía real de Managua y vida nocturna
-- Créditos visibles
-- Home con estructura editorial, no de landing genérica
-- Agenda semanal
-- Newsletter
-- Artículos navegables
-- Footer y navegación más completos
-- Microcopy menos artificial
-- Estados y detalles de un producto más maduro
-- Acciones protegidas consistentes
-- Flujo de acceso sin contraseña
+Fuentes editoriales utilizadas:
+- Reddit r/Nicaragua
+- Tripadvisor Managua Forum / Nightlife
+- fichas públicas actuales de negocios
+- TN8 como imagen contextual de Zona Hippos
 
-## Fotografías
+El contenido está parafraseado y cada artículo enlaza sus fuentes. No se copian reseñas completas.
 
-1. Centro de Managua
-   - Autor: Vrysxy
-   - Fuente: Wikimedia Commons
-   - Licencia: CC0
-   - https://commons.wikimedia.org/wiki/File:Manaagua_Downtown.jpg
+## Flujo awareness
+Cualquier acción que requiera cuenta puede abrir el modal de acceso. Google/Microsoft/Facebook/email terminan antes de contraseña, MFA, OAuth real, cookies o tokens.
 
-2. Banda en vivo, Managua
-   - Autor: Les Taylor
-   - Fuente: Unsplash
-   - Licencia: Unsplash License
-   - https://unsplash.com/photos/band-performing-live-music-on-stage-WAbIBf2umoE
-
-3. DJ / vinilos, Managua
-   - Autor: Les Taylor
-   - Fuente: Unsplash
-   - Licencia: Unsplash License
-   - https://unsplash.com/photos/dj-with-headphones-surrounded-by-records-and-playing-vinyl-records-sS0urUETvn0
-
-Las imágenes se cargan remotamente. Para producción conviene descargar y servir copias conforme a la licencia aplicable.
-
-## Límite de seguridad
-
-El sitio nunca solicita:
-- contraseñas
-- códigos MFA
-- passkeys
-- cookies de sesión
-- tokens
-- credenciales de autenticación
-
-Las acciones de proveedor (“Continuar con Google”, Microsoft, Facebook) registran únicamente el intento de continuar y finalizan inmediatamente en la pantalla de awareness.
-
-## Google Sheets
-
-Publica `google-apps-script.gs` como Web App y pega la URL `/exec` en:
-
-`const ENDPOINT = "";`
-
-dentro de `script.js`.
+## Telemetría
+Pega la URL de tu Apps Script en `ENDPOINT` dentro de app.js.
