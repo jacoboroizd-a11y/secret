@@ -1,5 +1,31 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Security Awareness Test</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
-<body class="failed-bg"><main class="failed-card"><div class="alert-ring">!</div><span class="kicker danger">SECURITY AWARENESS</span><h1>FAILED PHISHING TEST</h1><p>Esta era una simulación interna de seguridad. La interacción se detuvo antes de solicitar cualquier secreto.</p>
-<div class="lesson"><strong>Qué revisar la próxima vez</strong><ul><li>El dominio y la URL antes de continuar.</li><li>Si realmente esperabas que esa acción requiriera iniciar sesión.</li><li>Si el enlace llegó desde un correo o invitación inesperada.</li><li>Si la curiosidad o un beneficio te está haciendo avanzar demasiado rápido.</li></ul></div>
-<p class="safe-note">No se solicitó ni almacenó contraseña, MFA, passkey, cookie o token.</p><a class="primary return-btn" href="index.html">Volver al sitio</a></main>
-<script src="script.js"></script><script>const qs=new URLSearchParams(location.search);track("failed_test",{source:qs.get("source")||"unknown"});</script></body></html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security Awareness Test</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"></head>
+<body class="failed-bg">
+<main class="failed-card">
+  <div class="alert-ring">!</div>
+  <span class="eyebrow danger">SECURITY AWARENESS</span>
+  <h1>FAILED PHISHING TEST</h1>
+  <p>Esta era una simulación interna de seguridad. La prueba se detuvo antes de solicitar cualquier contraseña, código o secreto.</p>
+
+  <div class="lesson">
+    <strong>Qué debías comprobar</strong>
+    <ul>
+      <li>Si el dominio coincidía con el servicio que creías estar usando.</li>
+      <li>Si realmente era necesario iniciar sesión para esa acción.</li>
+      <li>Si llegaste aquí desde un correo o enlace inesperado.</li>
+      <li>Si la curiosidad o conveniencia te hizo avanzar sin revisar.</li>
+    </ul>
+  </div>
+
+  <p class="safe-note">No se solicitó ni almacenó contraseña, MFA, passkey, cookie o token.</p>
+  <a class="btn primary full" href="index.html">Volver al sitio</a>
+</main>
+<script src="script.js"></script>
+<script>
+const qs=new URLSearchParams(location.search);
+track("failed_test",{source:qs.get("source")||"unknown",action:qs.get("action")||"unknown"});
+</script>
+</body>
+</html>

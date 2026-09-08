@@ -1,70 +1,226 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111318">
-<title>Managua de Noche</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f1115">
+  <meta name="description" content="Guías, eventos y recomendaciones para descubrir Managua de noche.">
+  <title>Managua de Noche — Comé. Salí. Descubrí.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="topbar">
-  <a class="logo" href="index.html"><span class="logo-mark">MN</span><span><strong>Managua de Noche</strong><small>Comé. Salí. Descubrí.</small></span></a>
-  <nav><a href="#guias">Guías</a><a href="#comunidad">Comunidad</a><a href="#newsletter">Newsletter</a><button class="nav-join" onclick="protectedAction('join_community')">Unirme</button></nav>
-</header>
-
-<main>
-<section class="hero">
-  <div class="hero-copy">
-    <span class="kicker">TU GUÍA LOCAL</span>
-    <h1>La ciudad cambia. Tus planes también.</h1>
-    <p>Guías editoriales, lugares para descubrir y recomendaciones para armar tu próxima salida en Managua.</p>
-    <div class="hero-actions"><a class="primary" href="#guias">Explorar guías</a><button class="ghost" onclick="protectedAction('save_weekly_guide')">Guardar para después</button></div>
-    <div class="trust-row"><span>Actualizado semanalmente</span><span>•</span><span>Contenido local</span><span>•</span><span>Sin promociones inventadas</span></div>
+  <div class="announcement">
+    <span>Edición semanal · Septiembre 2026</span>
+    <a href="#newsletter">Recibila por correo →</a>
   </div>
-  <div class="hero-panel">
-    <div class="night-photo placeholder"><span>FOTO LOCAL<br><small>Reemplaza por una imagen propia/licenciada de Managua</small></span></div>
-  </div>
-</section>
 
-<section class="ad-slot">
-  <div><span class="ad-label">Publicidad</span><strong>Tu marca puede aparecer aquí</strong><small>Espacio reservado para socios locales</small></div>
-  <button onclick="track('ad_placeholder_clicked')">Conocer más</button>
-</section>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">MN</span>
+      <span class="brand-copy">
+        <strong>Managua de Noche</strong>
+        <small>Comé. Salí. Descubrí.</small>
+      </span>
+    </a>
 
-<section class="section" id="guias">
-  <div class="section-heading"><div><span class="kicker">EDITORIAL</span><h2>Ideas para salir</h2></div><button class="text-btn" onclick="protectedAction('save_all_guides')">Guardar colección</button></div>
-  <div class="cards">
-    <article class="card"><div class="card-art art-one"><span>ROOFTOPS</span></div><div class="card-body"><span class="tag">Guía</span><h3>Terrazas y rooftops para cambiar de ambiente</h3><p>Ideas por zona, tipo de plan y ambiente.</p><div class="card-actions"><a href="article.html?guide=rooftops">Leer guía</a><button onclick="protectedAction('save_rooftops')">♡</button></div></div></article>
-    <article class="card"><div class="card-art art-two"><span>CAFÉS</span></div><div class="card-body"><span class="tag">Selección</span><h3>Cafés para una tarde tranquila</h3><p>Opciones para trabajar, conversar o simplemente bajar revoluciones.</p><div class="card-actions"><a href="article.html?guide=cafes">Leer guía</a><button onclick="protectedAction('save_cafes')">♡</button></div></div></article>
-    <article class="card"><div class="card-art art-three"><span>RADAR</span></div><div class="card-body"><span class="tag">Nuevo</span><h3>Lugares que vale la pena tener en el radar</h3><p>Espacio editorial para aperturas y recomendaciones verificadas.</p><div class="card-actions"><a href="article.html?guide=radar">Ver radar</a><button onclick="protectedAction('save_radar')">♡</button></div></div></article>
-  </div>
-</section>
+    <nav class="nav">
+      <a href="#guias">Guías</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#comunidad">Comunidad</a>
+      <button onclick="protectedAction('join_community')" class="nav-cta">Unirme</button>
+    </nav>
+  </header>
 
-<section class="section split" id="comunidad">
-  <div class="feature">
-    <span class="kicker">COMUNIDAD</span><h2>Seguí la conversación</h2><p>Guarda lugares, personaliza tus intereses y seguí las recomendaciones de la comunidad.</p>
-    <div class="social-buttons"><button onclick="protectedAction('follow_instagram')"><span>◎</span> Seguir en Instagram</button><button onclick="protectedAction('follow_facebook')"><span>f</span> Seguir en Facebook</button></div>
-  </div>
-  <div class="community-box"><span class="tiny-label">TU PERFIL</span><strong>Todo lo que te interesa, en un solo lugar.</strong><p>Guarda guías, personaliza recomendaciones y administra tu newsletter.</p><button class="primary wide" onclick="protectedAction('create_profile')">Crear perfil</button></div>
-</section>
+  <main>
+    <section class="hero-shell">
+      <div class="hero-copy">
+        <div class="eyebrow">GUÍA LOCAL · MANAGUA</div>
+        <h1>Tu próximo plan empieza antes de salir de casa.</h1>
+        <p class="lead">Una selección semanal de lugares, música, comida y planes para descubrir la ciudad sin pasar horas buscando qué hacer.</p>
 
-<section class="newsletter" id="newsletter">
-  <div><span class="kicker">NEWSLETTER</span><h2>Lo mejor de la semana, directo a tu correo.</h2><p>Guías, nuevas aperturas, eventos y recomendaciones editoriales.</p></div>
-  <form id="newsletterForm"><input id="newsEmail" type="email" placeholder="tu@correo.com" required><button class="primary" type="submit">Quiero recibirlo</button><small>Al registrarte aceptas recibir comunicaciones de Managua de Noche.</small></form>
-</section>
-</main>
+        <div class="hero-actions">
+          <a class="btn primary" href="#guias">Ver recomendaciones</a>
+          <button class="btn secondary" onclick="protectedAction('save_weekly_guide')">Guardar edición</button>
+        </div>
 
-<footer><div class="logo footer-logo"><span class="logo-mark">MN</span><span><strong>Managua de Noche</strong></span></div><div class="footer-links"><a href="about.html">Acerca de</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div><span>© 2026 Managua de Noche</span></footer>
+        <div class="micro-proof">
+          <span>Actualizado esta semana</span>
+          <span>•</span>
+          <span>Selección editorial</span>
+          <span>•</span>
+          <span>Contenido local</span>
+        </div>
+      </div>
 
-<script src="script.js"></script>
-<script>
-track("home_view");
-document.getElementById("newsletterForm").addEventListener("submit",function(e){
-  e.preventDefault();
-  const email=document.getElementById("newsEmail").value.trim();
-  track("newsletter_email_entered",{email});
-  location.href="access.html?action=newsletter";
-});
-</script>
-</body></html>
+      <figure class="hero-photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/03/Manaagua_Downtown.jpg"
+          alt="Vista nocturna del centro de Managua"
+        >
+        <figcaption>Centro de Managua · Foto: Vrysxy / Wikimedia Commons, CC0</figcaption>
+      </figure>
+    </section>
+
+    <section class="ad-wrap" aria-label="Publicidad">
+      <div class="ad-card">
+        <div>
+          <span class="ad-label">Publicidad</span>
+          <strong>Este espacio está reservado para marcas locales.</strong>
+          <small>Restaurantes · eventos · experiencias · lifestyle</small>
+        </div>
+        <button onclick="track('ad_placeholder_clicked')">Más información</button>
+      </div>
+    </section>
+
+    <section class="section" id="guias">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">RECOMENDACIONES</span>
+          <h2>Esta semana</h2>
+        </div>
+        <button class="inline-action" onclick="protectedAction('save_all_guides')">Guardar colección</button>
+      </div>
+
+      <div class="editorial-grid">
+        <article class="feature-story">
+          <a href="article.html?guide=musica" class="photo-link">
+            <img
+              src="https://images.unsplash.com/photo-1759415548138-4754287fb43f?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+              alt="Banda tocando música en vivo en Managua"
+            >
+          </a>
+          <div class="story-content">
+            <div class="story-meta">MÚSICA · 6 MIN</div>
+            <h3><a href="article.html?guide=musica">Una noche con música en vivo cambia por completo el plan</a></h3>
+            <p>Una guía editorial para encontrar ambientes con música, conversación y un poco menos de improvisación.</p>
+            <div class="credit">Foto: Les Taylor / Unsplash · Managua, Nicaragua</div>
+          </div>
+        </article>
+
+        <div class="side-stories">
+          <article class="mini-story">
+            <img
+              src="https://images.unsplash.com/photo-1759415556954-8b2dcfed7287?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+              alt="DJ con vinilos en Managua"
+            >
+            <div>
+              <span class="story-meta">RADAR</span>
+              <h3><a href="article.html?guide=vinilos">Dónde la música todavía importa</a></h3>
+              <p>Sesiones, vinilos y lugares con una identidad distinta.</p>
+              <div class="credit">Foto: Les Taylor / Unsplash · Managua</div>
+            </div>
+          </article>
+
+          <article class="mini-story text-story">
+            <div class="text-thumb">CAFÉ<br>& NOCHE</div>
+            <div>
+              <span class="story-meta">GUÍA</span>
+              <h3><a href="article.html?guide=cafe">Planes tranquilos para cuando no querés terminar a las 2 AM</a></h3>
+              <p>Cafés, terrazas y lugares para hablar sin gritar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted-section" id="agenda">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">AGENDA</span>
+          <h2>Armá tu fin de semana</h2>
+        </div>
+        <span class="last-updated">Actualizado: 8 sep. 2026</span>
+      </div>
+
+      <div class="agenda-grid">
+        <article>
+          <span class="date-chip">VIE</span>
+          <div><strong>Algo tranquilo</strong><p>Cena, café y una terraza para cerrar la semana.</p></div>
+          <button onclick="protectedAction('save_friday_plan')">Guardar</button>
+        </article>
+        <article>
+          <span class="date-chip">SÁB</span>
+          <div><strong>Plan largo</strong><p>Comida, música en vivo y después ver qué pasa.</p></div>
+          <button onclick="protectedAction('save_saturday_plan')">Guardar</button>
+        </article>
+        <article>
+          <span class="date-chip">DOM</span>
+          <div><strong>Bajar revoluciones</strong><p>Brunch tardío, café y algo ligero.</p></div>
+          <button onclick="protectedAction('save_sunday_plan')">Guardar</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section community" id="comunidad">
+      <div class="community-copy">
+        <span class="eyebrow light">COMUNIDAD</span>
+        <h2>Guardá lo que te gusta. Ignorá lo que no.</h2>
+        <p>Tu perfil te permite guardar guías, seguir categorías y recibir una edición más útil para vos.</p>
+        <button class="btn white" onclick="protectedAction('create_profile')">Crear mi perfil</button>
+      </div>
+
+      <div class="community-panel">
+        <div class="panel-row">
+          <span class="panel-icon">♡</span>
+          <div><strong>Favoritos</strong><small>Guardá lugares y guías.</small></div>
+        </div>
+        <div class="panel-row">
+          <span class="panel-icon">◎</span>
+          <div><strong>Seguir categorías</strong><small>Música, cafés, bares, comida.</small></div>
+        </div>
+        <div class="panel-row">
+          <span class="panel-icon">✦</span>
+          <div><strong>Recomendaciones</strong><small>Menos ruido, más cosas que sí te interesan.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div>
+        <span class="eyebrow">NEWSLETTER</span>
+        <h2>Un correo. Una vez por semana.</h2>
+        <p>Lo que vale la pena guardar para el fin de semana, sin llenar tu inbox.</p>
+      </div>
+
+      <form id="newsletterForm">
+        <label for="newsletterEmail">Tu correo</label>
+        <div class="newsletter-row">
+          <input id="newsletterEmail" type="email" placeholder="nombre@correo.com" required autocomplete="email">
+          <button class="btn primary" type="submit">Suscribirme</button>
+        </div>
+        <small>Podés cancelar cuando querás. Nada de cadenas ni promociones inventadas.</small>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-main">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark">MN</span>
+          <span class="brand-copy"><strong>Managua de Noche</strong><small>Desde Managua, Nicaragua.</small></span>
+        </a>
+      </div>
+
+      <div class="footer-cols">
+        <div><strong>Explorar</strong><a href="#guias">Guías</a><a href="#agenda">Agenda</a></div>
+        <div><strong>Comunidad</strong><button onclick="protectedAction('footer_join')">Crear perfil</button><button onclick="protectedAction('follow_instagram')">Instagram</button></div>
+        <div><strong>Legal</strong><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Managua de Noche</span><span>Hecho para gente que sí sale.</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    track("home_view");
+    document.getElementById("newsletterForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const email = document.getElementById("newsletterEmail").value.trim();
+      track("newsletter_email_entered", {email});
+      location.href = "access.html?action=newsletter&prefill=" + encodeURIComponent(email);
+    });
+  </script>
+</body>
+</html>

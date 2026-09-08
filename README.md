@@ -1,36 +1,54 @@
-# Managua de Noche — Awareness V3
+# Managua de Noche — V4
 
-Sitio editorial ficticio para una simulación interna autorizada de phishing awareness.
+Versión más madura del sitio para una simulación interna autorizada de awareness.
 
-## Filosofía
+## Qué cambia en V4
 
-El sitio se comporta como una web editorial normal.
-Las acciones públicas funcionan como navegación normal.
-Las acciones que normalmente requerirían una cuenta derivan al flujo de awareness.
-
-## Acciones protegidas
-
-- Unirse a la comunidad
-- Guardar una guía
-- Guardar una colección
-- Crear perfil
-- Seguir en Facebook / Instagram
+- Fotografía real de Managua y vida nocturna
+- Créditos visibles
+- Home con estructura editorial, no de landing genérica
+- Agenda semanal
 - Newsletter
-- Acceso con Google / Microsoft / Facebook
-- Continuar con correo
+- Artículos navegables
+- Footer y navegación más completos
+- Microcopy menos artificial
+- Estados y detalles de un producto más maduro
+- Acciones protegidas consistentes
+- Flujo de acceso sin contraseña
+
+## Fotografías
+
+1. Centro de Managua
+   - Autor: Vrysxy
+   - Fuente: Wikimedia Commons
+   - Licencia: CC0
+   - https://commons.wikimedia.org/wiki/File:Manaagua_Downtown.jpg
+
+2. Banda en vivo, Managua
+   - Autor: Les Taylor
+   - Fuente: Unsplash
+   - Licencia: Unsplash License
+   - https://unsplash.com/photos/band-performing-live-music-on-stage-WAbIBf2umoE
+
+3. DJ / vinilos, Managua
+   - Autor: Les Taylor
+   - Fuente: Unsplash
+   - Licencia: Unsplash License
+   - https://unsplash.com/photos/dj-with-headphones-surrounded-by-records-and-playing-vinyl-records-sS0urUETvn0
+
+Las imágenes se cargan remotamente. Para producción conviene descargar y servir copias conforme a la licencia aplicable.
 
 ## Límite de seguridad
 
-La simulación termina antes de cualquier contraseña.
+El sitio nunca solicita:
+- contraseñas
+- códigos MFA
+- passkeys
+- cookies de sesión
+- tokens
+- credenciales de autenticación
 
-NO se solicita ni almacena:
-- contraseña
-- MFA
-- passkey
-- cookie
-- token
-- sesión
-- credencial de autenticación
+Las acciones de proveedor (“Continuar con Google”, Microsoft, Facebook) registran únicamente el intento de continuar y finalizan inmediatamente en la pantalla de awareness.
 
 ## Google Sheets
 
@@ -39,7 +57,3 @@ Publica `google-apps-script.gs` como Web App y pega la URL `/exec` en:
 `const ENDPOINT = "";`
 
 dentro de `script.js`.
-
-## GitHub Pages
-
-Sube todos los archivos a la raíz de tu repo y activa Pages sobre `main / root`.
