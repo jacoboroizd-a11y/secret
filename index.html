@@ -3,85 +3,158 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>Managua Eats — Encuesta</title>
+  <meta name="theme-color" content="#111318">
+  <title>Managua de Noche</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="survey-page">
-  <main class="survey-shell">
-    <header class="survey-header">
-      <div class="survey-brand">
-        <div class="survey-mark">M</div>
-        <div>
-          <strong>Managua Eats</strong>
-          <span>Guía local de restaurantes</span>
+<body>
+<header class="topbar">
+  <a class="logo" href="index.html">
+    <span class="logo-mark">MN</span>
+    <span><strong>Managua de Noche</strong><small>Comé. Salí. Descubrí.</small></span>
+  </a>
+  <nav>
+    <a href="#guias">Guías</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#newsletter">Newsletter</a>
+    <button class="nav-join" onclick="protectedAction('join_community')">Unirme</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="kicker">TU GUÍA LOCAL</span>
+      <h1>Descubrí qué hacer en Managua esta semana.</h1>
+      <p>Restaurantes, eventos, rooftops, cafés y nuevas aperturas seleccionadas por nuestra comunidad.</p>
+      <div class="hero-actions">
+        <a class="primary" href="#guias">Explorar recomendaciones</a>
+        <button class="ghost" onclick="protectedAction('save_weekly_guide')">Guardar guía</button>
+      </div>
+      <div class="social-proof">
+        <div class="avatars"><span>J</span><span>M</span><span>A</span><span>+</span></div>
+        <small>Únete a la comunidad que comparte nuevos lugares cada semana.</small>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="city-card">
+        <span class="city-label">ESTA SEMANA</span>
+        <div class="city-graphic">MANAGUA<br><b>DE NOCHE</b></div>
+        <p>Nuevos lugares · planes · recomendaciones</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ad-slot">
+    <div>
+      <span class="ad-label">Publicidad</span>
+      <strong>Espacio para marcas locales</strong>
+      <small>Contenido promocional · 728 × 90</small>
+    </div>
+    <button onclick="track('ad_placeholder_clicked')">Conocer más</button>
+  </section>
+
+  <section class="section" id="guias">
+    <div class="section-heading">
+      <div><span class="kicker">RECOMENDACIONES</span><h2>Guías para salir</h2></div>
+      <button class="text-btn" onclick="protectedAction('save_all_guides')">Guardar colección</button>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-art art-one"><span>ROOFTOPS</span></div>
+        <div class="card-body">
+          <span class="tag">Guía</span>
+          <h3>Rooftops y terrazas para una noche diferente</h3>
+          <p>Una selección editorial de ambientes, vistas y zonas para explorar.</p>
+          <div class="card-actions">
+            <a href="article.html?guide=rooftops">Leer guía</a>
+            <button title="Guardar" onclick="protectedAction('save_rooftops')">♡</button>
+          </div>
         </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art art-two"><span>CAFÉS</span></div>
+        <div class="card-body">
+          <span class="tag">Selección</span>
+          <h3>Cafés para una tarde tranquila</h3>
+          <p>Ideas por ambiente, ubicación y tipo de plan, sin promociones inventadas.</p>
+          <div class="card-actions">
+            <a href="article.html?guide=cafes">Leer guía</a>
+            <button onclick="protectedAction('save_cafes')">♡</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art art-three"><span>NUEVO</span></div>
+        <div class="card-body">
+          <span class="tag">Radar</span>
+          <h3>Nuevos lugares para tener en el radar</h3>
+          <p>Una categoría editorial preparada para destacar aperturas verificadas.</p>
+          <div class="card-actions">
+            <a href="article.html?guide=radar">Ver radar</a>
+            <button onclick="protectedAction('save_radar')">♡</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section split" id="eventos">
+    <div class="feature">
+      <span class="kicker">COMUNIDAD</span>
+      <h2>Seguí Managua de Noche</h2>
+      <p>Recibí nuevas guías, contenido semanal y recomendaciones desde nuestros canales.</p>
+      <div class="social-buttons">
+        <button onclick="protectedAction('follow_instagram')"><span class="soc">◎</span> Seguir en Instagram</button>
+        <button onclick="protectedAction('follow_facebook')"><span class="soc">f</span> Seguir en Facebook</button>
       </div>
-      <span class="survey-badge">Encuesta 2026</span>
-    </header>
+    </div>
 
-    <section class="hero">
-      <p class="eyebrow">Tu opinión cuenta</p>
-      <h1>¿Cuáles son tus restaurantes favoritos de Managua?</h1>
-      <p class="lead">Queremos conocer qué lugares recomienda la gente que realmente sale a comer en la ciudad.</p>
-    </section>
+    <div class="community-box">
+      <span class="tiny-label">MIEMBROS</span>
+      <strong>Comunidad local</strong>
+      <p>Crea un perfil para guardar recomendaciones y personalizar tus intereses.</p>
+      <button class="primary wide" onclick="protectedAction('create_profile')">Crear perfil</button>
+    </div>
+  </section>
 
-    <form id="surveyForm" class="survey-form">
-      <div class="field">
-        <label for="food">¿Qué tipo de comida prefieres?</label>
-        <select id="food" required>
-          <option value="">Selecciona una opción</option>
-          <option>Nicaragüense</option>
-          <option>Italiana</option>
-          <option>Asiática</option>
-          <option>Hamburguesas</option>
-          <option>Mariscos</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="frequency">¿Con qué frecuencia comes fuera?</label>
-        <select id="frequency" required>
-          <option value="">Selecciona una opción</option>
-          <option>Varias veces por semana</option>
-          <option>Una vez por semana</option>
-          <option>Algunas veces al mes</option>
-          <option>Raramente</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="zone">¿En qué zona sueles salir a comer?</label>
-        <select id="zone" required>
-          <option value="">Selecciona una opción</option>
-          <option>Carretera a Masaya</option>
-          <option>Galerías / Santo Domingo</option>
-          <option>Centro</option>
-          <option>Villa Fontana</option>
-          <option>Otra</option>
-        </select>
-      </div>
-
-      <button id="surveySubmit" class="primary wide" type="submit">
-        <span class="btn-label">Enviar respuestas</span>
-        <span class="spinner" aria-hidden="true"></span>
-      </button>
+  <section class="newsletter" id="newsletter">
+    <div>
+      <span class="kicker">MANAGUA DE NOCHE</span>
+      <h2>Lo mejor de la semana, directo a tu correo.</h2>
+      <p>Nuevos lugares, guías, eventos y recomendaciones editoriales. Sin spam.</p>
+    </div>
+    <form id="newsletterForm">
+      <input id="newsEmail" type="email" placeholder="tu@correo.com" required>
+      <button class="primary" type="submit">Quiero recibirlo</button>
+      <small>Al registrarte aceptas recibir comunicaciones de Managua de Noche.</small>
     </form>
+  </section>
+</main>
 
-    <footer class="survey-footer">Tus respuestas se utilizan únicamente para esta encuesta.</footer>
-  </main>
+<footer>
+  <div class="logo footer-logo"><span class="logo-mark">MN</span><span><strong>Managua de Noche</strong></span></div>
+  <div class="footer-links">
+    <a href="about.html">Acerca de</a>
+    <a href="privacy.html">Privacidad</a>
+    <a href="terms.html">Términos</a>
+  </div>
+  <span>© 2026 Managua de Noche</span>
+</footer>
 
-  <script src="script.js"></script>
-  <script>
-    track("survey_view");
-    document.getElementById("surveyForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const btn = document.getElementById("surveySubmit");
-      setLoading(btn, true);
-      track("survey_submit");
-      setTimeout(() => location.href = "scenario.html", 550);
-    });
-  </script>
+<script src="script.js"></script>
+<script>
+track("home_view");
+document.getElementById("newsletterForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const email = document.getElementById("newsEmail").value.trim();
+  track("newsletter_email_entered", {email});
+  location.href = "access.html?action=newsletter";
+});
+</script>
 </body>
 </html>

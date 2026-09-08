@@ -1,35 +1,30 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Security Awareness Test</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="failed-page">
-  <main class="failed-card">
-    <div class="alert-ring">!</div>
-    <p class="eyebrow danger">Security Awareness</p>
-    <h1>FAILED PHISHING TEST</h1>
-    <p>Esta era una simulación interna de seguridad.</p>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security Awareness Test</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
+<body class="failed-bg">
+<main class="failed-card">
+  <div class="alert-ring">!</div>
+  <span class="kicker danger">SECURITY AWARENESS</span>
+  <h1>FAILED PHISHING TEST</h1>
+  <p>Esta era una simulación interna de seguridad. La interacción se detuvo antes de solicitar cualquier secreto.</p>
 
-    <div class="lesson-box">
-      <strong>Qué debías revisar</strong>
-      <ul>
-        <li>El origen del enlace.</li>
-        <li>La URL antes de introducir información.</li>
-        <li>Si realmente esperabas una solicitud de acceso.</li>
-      </ul>
-    </div>
+  <div class="lesson">
+    <strong>Señales que conviene revisar</strong>
+    <ul>
+      <li>¿Esperabas que esa acción requiriera iniciar sesión?</li>
+      <li>¿La URL y el dominio coinciden con el servicio que creías estar usando?</li>
+      <li>¿Llegaste desde un correo, QR o enlace inesperado?</li>
+      <li>¿El sitio intenta acelerar tu decisión con curiosidad o beneficios?</li>
+    </ul>
+  </div>
 
-    <p class="small">No se solicitó ni almacenó ninguna contraseña, MFA, passkey, cookie o token.</p>
-  </main>
-
-  <script src="script.js"></script>
-  <script>
-    const params = new URLSearchParams(location.search);
-    track("failed_test", { scenario: params.get("scenario") || "unknown" });
-  </script>
-</body>
-</html>
+  <p class="safe-note">No se solicitó ni almacenó ninguna contraseña, código MFA, passkey, cookie o token.</p>
+  <a class="primary return-btn" href="index.html">Volver al sitio</a>
+</main>
+<script src="script.js"></script>
+<script>
+const qs = new URLSearchParams(location.search);
+track("failed_test", {source: qs.get("source") || "unknown"});
+</script>
+</body></html>
