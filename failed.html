@@ -1,30 +1,5 @@
-<!doctype html>
-<html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Security Awareness Test</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
-<body class="failed-bg">
-<main class="failed-card">
-  <div class="alert-ring">!</div>
-  <span class="kicker danger">SECURITY AWARENESS</span>
-  <h1>FAILED PHISHING TEST</h1>
-  <p>Esta era una simulación interna de seguridad. La interacción se detuvo antes de solicitar cualquier secreto.</p>
-
-  <div class="lesson">
-    <strong>Señales que conviene revisar</strong>
-    <ul>
-      <li>¿Esperabas que esa acción requiriera iniciar sesión?</li>
-      <li>¿La URL y el dominio coinciden con el servicio que creías estar usando?</li>
-      <li>¿Llegaste desde un correo, QR o enlace inesperado?</li>
-      <li>¿El sitio intenta acelerar tu decisión con curiosidad o beneficios?</li>
-    </ul>
-  </div>
-
-  <p class="safe-note">No se solicitó ni almacenó ninguna contraseña, código MFA, passkey, cookie o token.</p>
-  <a class="primary return-btn" href="index.html">Volver al sitio</a>
-</main>
-<script src="script.js"></script>
-<script>
-const qs = new URLSearchParams(location.search);
-track("failed_test", {source: qs.get("source") || "unknown"});
-</script>
-</body></html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Security Awareness Test</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
+<body class="failed-bg"><main class="failed-card"><div class="alert-ring">!</div><span class="kicker danger">SECURITY AWARENESS</span><h1>FAILED PHISHING TEST</h1><p>Esta era una simulación interna de seguridad. La interacción se detuvo antes de solicitar cualquier secreto.</p>
+<div class="lesson"><strong>Qué revisar la próxima vez</strong><ul><li>El dominio y la URL antes de continuar.</li><li>Si realmente esperabas que esa acción requiriera iniciar sesión.</li><li>Si el enlace llegó desde un correo o invitación inesperada.</li><li>Si la curiosidad o un beneficio te está haciendo avanzar demasiado rápido.</li></ul></div>
+<p class="safe-note">No se solicitó ni almacenó contraseña, MFA, passkey, cookie o token.</p><a class="primary return-btn" href="index.html">Volver al sitio</a></main>
+<script src="script.js"></script><script>const qs=new URLSearchParams(location.search);track("failed_test",{source:qs.get("source")||"unknown"});</script></body></html>
