@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inicio de sesión — Simulación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="login-card">
+    <div class="brand">Account</div>
+    <h1>Iniciar sesión</h1>
+    <p>Continúa con tu correo electrónico.</p>
+
+    <form id="emailForm">
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="email" autocomplete="off" required>
+      <button type="submit">Next</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    track("login_manual_view");
+
+    document.getElementById("emailForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+
+      // Solo se registra el correo para identificar al participante.
+      // No existe ningún campo de contraseña.
+      track("manual_email_submitted", { email });
+
+      location.href = "failed.html?scenario=manual";
+    });
+  </script>
+</body>
+</html>

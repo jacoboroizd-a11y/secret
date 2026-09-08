@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ver resultados</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Ver resultados</h1>
+    <p>Selecciona cómo quieres continuar.</p>
+
+    <div class="scenario-list">
+      <a class="button" href="login-manual.html" onclick="track('scenario_manual')">
+        Inicio de sesión manual
+      </a>
+      <a class="button secondary" href="login-google.html" onclick="track('scenario_google')">
+        Sign in with Google
+      </a>
+      <a class="button secondary" href="login-microsoft.html" onclick="track('scenario_microsoft')">
+        Sign in with Microsoft
+      </a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>track("scenario_view");</script>
+</body>
+</html>

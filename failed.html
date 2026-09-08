@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Phishing Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card result">
+    <div class="warning">!</div>
+    <h1>FAILED PHISHING TEST</h1>
+
+    <p>Esta era una simulación de seguridad.</p>
+    <p>La prueba terminó antes de solicitar una contraseña, código MFA, passkey o cualquier otro secreto.</p>
+    <p class="small">
+      Objetivo: reconocer enlaces y solicitudes de inicio de sesión sospechosas antes de entregar información sensible.
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    track("failed_test", { scenario: params.get("scenario") || "unknown" });
+  </script>
+</body>
+</html>

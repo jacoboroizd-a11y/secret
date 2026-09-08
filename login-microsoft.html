@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign in with Microsoft — Simulación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="login-card">
+    <div class="ms-logo" aria-hidden="true">▦</div>
+    <h1>Sign in with Microsoft</h1>
+    <p>Continúa para ver los resultados de la encuesta.</p>
+
+    <button id="msBtn" class="provider-button">Continue with Microsoft</button>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    track("login_microsoft_view");
+
+    document.getElementById("msBtn").addEventListener("click", function () {
+      track("microsoft_button_clicked");
+      location.href = "failed.html?scenario=microsoft";
+    });
+  </script>
+</body>
+</html>

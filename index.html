@@ -1,51 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Security Awareness Mockup</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Encuesta de restaurantes</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <main class="card">
+    <div class="brand">Managua Food Guide</div>
+    <h1>¿Cuáles son tus restaurantes favoritos de Managua?</h1>
+    <p>Ayúdanos a mejorar nuestra guía local. La encuesta toma menos de un minuto.</p>
 
-  <main class="card" id="card">
+    <form id="surveyForm">
+      <label for="food">¿Qué tipo de comida prefieres?</label>
+      <select id="food" required>
+        <option value="">Selecciona una opción</option>
+        <option>Nicaragüense</option>
+        <option>Italiana</option>
+        <option>Asiática</option>
+        <option>Hamburguesas</option>
+      </select>
 
-    <!-- STATE 1: static login mockup -->
-    <section id="state-login">
-      <div class="logo-placeholder" aria-hidden="true">
-        <svg width="40" height="40" viewBox="0 0 40 40">
-          <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="20" cy="20" r="6" fill="currentColor"/>
-        </svg>
-      </div>
+      <label for="frequency">¿Con qué frecuencia comes fuera?</label>
+      <select id="frequency" required>
+        <option value="">Selecciona una opción</option>
+        <option>Varias veces por semana</option>
+        <option>Una vez por semana</option>
+        <option>Algunas veces al mes</option>
+        <option>Raramente</option>
+      </select>
 
-      <h1>Verify it's you</h1>
-      <p class="sub">Enter your email to continue</p>
-
-      <form id="login-form" novalidate>
-        <label for="email">Email or phone</label>
-        <input type="email" id="email" name="email" autocomplete="off">
-        <button type="submit" id="next-btn">Next</button>
-      </form>
-    </section>
-
-    <!-- STATE 2: end of flow, shown after Next -->
-    <section id="state-result" hidden>
-      <p class="stop-icon" aria-hidden="true">🛑</p>
-      <h1>FAILED PHISHING TEST</h1>
-      <p class="body">
-        This page was part of an authorized phishing-awareness exercise.
-        The goal was to check whether you verified this page's authenticity
-        before continuing a sign-in flow.
-      </p>
-      <p class="body">
-        No password was requested or stored. Nothing you entered was sent
-        anywhere.
-      </p>
-    </section>
-
+      <button type="submit">Submit</button>
+    </form>
   </main>
 
   <script src="script.js"></script>
+  <script>
+    track("survey_view");
+
+    document.getElementById("surveyForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      track("survey_submit");
+      location.href = "scenario.html";
+    });
+  </script>
 </body>
 </html>
