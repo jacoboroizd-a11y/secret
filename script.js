@@ -1,23 +1,11 @@
-/*
-  Telemetría para una simulación autorizada de awareness.
-
-  Esta demo NO recopila:
-  - contraseñas
-  - códigos MFA
-  - passkeys
-  - cookies
-  - tokens
-  - credenciales de autenticación
-
-  Por defecto solamente imprime los eventos en la consola.
-*/
-
-const CAMPAIGN = "managua-restaurants-demo";
-
-// Pega aquí la URL de tu Google Apps Script Web App.
-// Ejemplo:
-// const ENDPOINT = "https://script.google.com/macros/s/XXXXX/exec";
+const CAMPAIGN = "managua-restaurants-demo-v2";
 const ENDPOINT = "";
+
+function setLoading(button, state){
+  if(!button) return;
+  button.disabled = state;
+  button.classList.toggle("is-loading", state);
+}
 
 function track(eventName, extra = {}) {
   const payload = {
@@ -34,9 +22,7 @@ function track(eventName, extra = {}) {
   fetch(ENDPOINT, {
     method: "POST",
     mode: "no-cors",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    },
+    headers: {"Content-Type":"text/plain;charset=utf-8"},
     body: JSON.stringify(payload)
   }).catch(() => {});
 }

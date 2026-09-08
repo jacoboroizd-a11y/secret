@@ -3,46 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Encuesta de restaurantes</title>
+  <meta name="theme-color" content="#ffffff">
+  <title>Managua Eats — Encuesta</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="card">
-    <div class="brand">Managua Food Guide</div>
-    <h1>¿Cuáles son tus restaurantes favoritos de Managua?</h1>
-    <p>Ayúdanos a mejorar nuestra guía local. La encuesta toma menos de un minuto.</p>
+<body class="survey-page">
+  <main class="survey-shell">
+    <header class="survey-header">
+      <div class="survey-brand">
+        <div class="survey-mark">M</div>
+        <div>
+          <strong>Managua Eats</strong>
+          <span>Guía local de restaurantes</span>
+        </div>
+      </div>
+      <span class="survey-badge">Encuesta 2026</span>
+    </header>
 
-    <form id="surveyForm">
-      <label for="food">¿Qué tipo de comida prefieres?</label>
-      <select id="food" required>
-        <option value="">Selecciona una opción</option>
-        <option>Nicaragüense</option>
-        <option>Italiana</option>
-        <option>Asiática</option>
-        <option>Hamburguesas</option>
-      </select>
+    <section class="hero">
+      <p class="eyebrow">Tu opinión cuenta</p>
+      <h1>¿Cuáles son tus restaurantes favoritos de Managua?</h1>
+      <p class="lead">Queremos conocer qué lugares recomienda la gente que realmente sale a comer en la ciudad.</p>
+    </section>
 
-      <label for="frequency">¿Con qué frecuencia comes fuera?</label>
-      <select id="frequency" required>
-        <option value="">Selecciona una opción</option>
-        <option>Varias veces por semana</option>
-        <option>Una vez por semana</option>
-        <option>Algunas veces al mes</option>
-        <option>Raramente</option>
-      </select>
+    <form id="surveyForm" class="survey-form">
+      <div class="field">
+        <label for="food">¿Qué tipo de comida prefieres?</label>
+        <select id="food" required>
+          <option value="">Selecciona una opción</option>
+          <option>Nicaragüense</option>
+          <option>Italiana</option>
+          <option>Asiática</option>
+          <option>Hamburguesas</option>
+          <option>Mariscos</option>
+        </select>
+      </div>
 
-      <button type="submit">Submit</button>
+      <div class="field">
+        <label for="frequency">¿Con qué frecuencia comes fuera?</label>
+        <select id="frequency" required>
+          <option value="">Selecciona una opción</option>
+          <option>Varias veces por semana</option>
+          <option>Una vez por semana</option>
+          <option>Algunas veces al mes</option>
+          <option>Raramente</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="zone">¿En qué zona sueles salir a comer?</label>
+        <select id="zone" required>
+          <option value="">Selecciona una opción</option>
+          <option>Carretera a Masaya</option>
+          <option>Galerías / Santo Domingo</option>
+          <option>Centro</option>
+          <option>Villa Fontana</option>
+          <option>Otra</option>
+        </select>
+      </div>
+
+      <button id="surveySubmit" class="primary wide" type="submit">
+        <span class="btn-label">Enviar respuestas</span>
+        <span class="spinner" aria-hidden="true"></span>
+      </button>
     </form>
+
+    <footer class="survey-footer">Tus respuestas se utilizan únicamente para esta encuesta.</footer>
   </main>
 
   <script src="script.js"></script>
   <script>
     track("survey_view");
-
     document.getElementById("surveyForm").addEventListener("submit", function (e) {
       e.preventDefault();
+      const btn = document.getElementById("surveySubmit");
+      setLoading(btn, true);
       track("survey_submit");
-      location.href = "scenario.html";
+      setTimeout(() => location.href = "scenario.html", 550);
     });
   </script>
 </body>
