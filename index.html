@@ -1,0 +1,34 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111318"><title>Managua de Noche — La ciudad, entre todos</title><link rel="stylesheet" href="assets/css/styles.css"><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"></head><body><div id="site-header"></div>
+<main class="page">
+  <section class="hero">
+    <span class="eyebrow">MANAGUA, ENTRE TODOS</span>
+    <h1>La conversación local que una reseña de cinco estrellas no alcanza a contar.</h1>
+    <p>Preguntas, lugares, guías, experiencias y señales públicas reunidas en una comunidad que cambia con la ciudad.</p>
+    <div class="hero-actions"><a class="primary" href="discover/index.html">Explorar Managua</a><a class="secondary" href="posts/new.html">Hacer una pregunta</a></div>
+  </section>
+  <div class="layout">
+    <div>
+      <div class="section-head"><div><span class="eyebrow">AHORA</span><h2>La comunidad está hablando de esto</h2></div><a href="discover/index.html">Ver tendencias →</a></div>
+      <div id="home-posts" class="post-list"></div>
+      <div class="section-head"><div><span class="eyebrow">COMUNIDADES</span><h2>Encontrá tu esquina</h2></div><a href="communities/index.html">Todas →</a></div>
+      <div id="home-comms" class="community-grid"></div>
+      <div class="section-head"><div><span class="eyebrow">LUGARES</span><h2>En el radar</h2></div><a href="places/index.html">Directorio →</a></div>
+      <div id="home-places" class="place-grid"></div>
+      <div class="section-head"><div><span class="eyebrow">GUÍAS</span><h2>Contexto, no solo estrellas</h2></div><a href="guides/index.html">Todas →</a></div>
+      <div id="home-guides" class="guide-grid"></div>
+    </div>
+    <aside>
+      <section class="side-card"><span class="eyebrow">TENDENCIAS</span><h3>Lo más mencionado</h3><div class="trend-item"><div><b>Los Robles</b><small>bares + comida</small></div><span>↗</span></div><div class="trend-item"><div><b>Primera cita</b><small>plan tranquilo</small></div><span>↗</span></div><div class="trend-item"><div><b>Fin de semana</b><small>eventos + talleres</small></div><span>↗</span></div></section>
+      <section class="side-card"><span class="eyebrow">PRINCIPIO</span><h3>Datos ≠ opiniones</h3><p>Separamos fichas públicas de lugares de la conversación comunitaria. Un horario puede verificarse; que un bar sea “el mejor” se discute.</p></section>
+      <section class="side-card"><span class="eyebrow">NUEVO</span><h3>¿Falta un lugar?</h3><p>La comunidad puede sugerirlo y dejar contexto para moderación.</p><a class="secondary" href="places/suggest.html">Sugerir lugar</a></section>
+    </aside>
+  </div>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  document.getElementById("home-posts").innerHTML=allPosts().slice(0,5).map(postCard).join("");
+  document.getElementById("home-comms").innerHTML=D.communities.slice(0,4).map(communityCard).join("");
+  document.getElementById("home-places").innerHTML=D.places.slice(0,6).map(placeCard).join("");
+  document.getElementById("home-guides").innerHTML=D.guides.slice(0,4).map(guideCard).join("");
+});
+</script><div id="site-footer"></div><div id="overlay-root"></div><div id="toast-root"></div><script src="assets/js/data.js"></script><script src="assets/js/common.js"></script><script>mountChrome('home');</script></body></html>

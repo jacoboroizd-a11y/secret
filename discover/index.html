@@ -1,0 +1,28 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111318"><title>Explorar — Managua de Noche</title><link rel="stylesheet" href="../assets/css/styles.css"><link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"></head><body><div id="site-header"></div>
+<main class="page">
+  <section class="hero"><span class="eyebrow">DESCUBRIR</span><h1>Una sola búsqueda, varias formas de entender la ciudad.</h1><p>Mezclamos posts, lugares, comunidades y guías para que no terminés saltando entre diez pestañas.</p></section>
+  <div class="filters" id="discover-tabs"><button class="active" data-kind="all">Todo</button><button data-kind="posts">Posts</button><button data-kind="places">Lugares</button><button data-kind="guides">Guías</button><button data-kind="communities">Comunidades</button></div>
+  <div class="control-row"><input id="discover-q" placeholder="Buscá “primera cita”, “Los Robles”, “café”..."><select id="discover-sort"><option value="relevance">Relevancia</option><option value="popular">Popularidad</option><option value="recent">Reciente</option></select><select id="discover-area"><option value="">Todas las zonas</option><option>Los Robles</option><option>Carretera a Masaya</option><option>Sur de Managua</option><option>Centro histórico</option></select></div>
+  <div id="discover-results"></div>
+</main>
+<script>
+let discoverKind="all";
+function renderDiscover(){
+ const q=(document.getElementById("discover-q").value||"").toLowerCase(),area=document.getElementById("discover-area").value;
+ const posts=allPosts().filter(p=>!q||(p.title+" "+p.body).toLowerCase().includes(q));
+ const places=D.places.filter(p=>(!q||(p.name+" "+p.summary+" "+p.tags.join(" ")).toLowerCase().includes(q))&&(!area||p.area===area));
+ const guides=D.guides.filter(g=>!q||(g.title+" "+g.deck).toLowerCase().includes(q));
+ const comms=D.communities.filter(c=>!q||(c.name+" "+c.desc).toLowerCase().includes(q));
+ let html="";
+ if(discoverKind==="all"||discoverKind==="posts")html+=`<div class="section-head"><div><span class="eyebrow">POSTS</span><h2>${posts.length} conversaciones</h2></div></div><div class="post-list">${posts.slice(0,8).map(postCard).join("")||'<div class="empty">Sin resultados.</div>'}</div>`;
+ if(discoverKind==="all"||discoverKind==="places")html+=`<div class="section-head"><div><span class="eyebrow">LUGARES</span><h2>${places.length} lugares</h2></div></div><div class="place-grid">${places.slice(0,9).map(placeCard).join("")||'<div class="empty">Sin resultados.</div>'}</div>`;
+ if(discoverKind==="all"||discoverKind==="guides")html+=`<div class="section-head"><div><span class="eyebrow">GUÍAS</span><h2>${guides.length} lecturas</h2></div></div><div class="guide-grid">${guides.map(guideCard).join("")||'<div class="empty">Sin resultados.</div>'}</div>`;
+ if(discoverKind==="all"||discoverKind==="communities")html+=`<div class="section-head"><div><span class="eyebrow">COMUNIDADES</span><h2>${comms.length} comunidades</h2></div></div><div class="community-grid">${comms.map(communityCard).join("")||'<div class="empty">Sin resultados.</div>'}</div>`;
+ document.getElementById("discover-results").innerHTML=html;
+}
+document.addEventListener("DOMContentLoaded",()=>{
+ document.querySelectorAll("#discover-tabs button").forEach(b=>b.onclick=()=>{discoverKind=b.dataset.kind;document.querySelectorAll("#discover-tabs button").forEach(x=>x.classList.toggle("active",x===b));renderDiscover()});
+ ["discover-q","discover-sort","discover-area"].forEach(id=>document.getElementById(id).addEventListener("input",renderDiscover));
+ renderDiscover();
+});
+</script><div id="site-footer"></div><div id="overlay-root"></div><div id="toast-root"></div><script src="../assets/js/data.js"></script><script src="../assets/js/common.js"></script><script>mountChrome('discover');</script></body></html>
