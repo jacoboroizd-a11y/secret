@@ -1,25 +1,45 @@
-# Managua de Noche V6
+# Managua de Noche V9.2 — GitHub Pages Ready
 
-V6 convierte el proyecto en un pequeño medio/directorio navegable.
+Esta versión está preparada para publicarse en un repositorio de GitHub Pages como:
 
-Páginas:
-- index.html
-- explore.html
-- articles.html
-- article.html?id=...
-- place.html?id=...
-- failed.html
+`https://usuario.github.io/managua-de-noche/`
 
-Fuentes editoriales utilizadas:
-- Reddit r/Nicaragua
-- Tripadvisor Managua Forum / Nightlife
-- fichas públicas actuales de negocios
-- TN8 como imagen contextual de Zona Hippos
+## Diferencia respecto a V9.1
 
-El contenido está parafraseado y cada artículo enlaza sus fuentes. No se copian reseñas completas.
+- Se eliminaron las rutas absolutas tipo `/assets/...`
+- Las páginas internas usan rutas relativas como `../assets/...`
+- El JS genera enlaces compatibles con páginas dentro de subcarpetas
+- `index.html` puede vivir en la raíz del repo
+- No requiere dominio propio ni configuración de base path
 
-## Flujo awareness
-Cualquier acción que requiera cuenta puede abrir el modal de acceso. Google/Microsoft/Facebook/email terminan antes de contraseña, MFA, OAuth real, cookies o tokens.
+## Cómo subirla
 
-## Telemetría
-Pega la URL de tu Apps Script en `ENDPOINT` dentro de app.js.
+Subí **el contenido de esta carpeta** a la raíz del repositorio:
+
+```text
+repo/
+├── index.html
+├── about.html
+├── 404.html
+├── assets/
+├── auth/
+├── communities/
+├── places/
+├── posts/
+├── profile/
+├── saved/
+└── legal/
+```
+
+Luego:
+
+1. GitHub → Settings
+2. Pages
+3. Deploy from a branch
+4. Branch: `main`
+5. Folder: `/ (root)`
+6. Save
+
+## Nota
+
+Esta sigue siendo Community Alpha sin backend real. Cuenta, guardados y preferencias usan `localStorage`.
